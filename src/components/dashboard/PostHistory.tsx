@@ -61,21 +61,28 @@ export default function PostHistory() {
 
   return (
     <section aria-labelledby="history-heading">
+      <span className="mb-2 block text-[12px] font-bold uppercase tracking-wider text-[#3b82f6]">
+        History
+      </span>
       <h2
         id="history-heading"
-        className="mb-4 text-lg font-semibold text-white"
+        className="mb-4 text-lg font-bold text-[#f9fafb]"
       >
         生成履歴
       </h2>
 
-      <div className="space-y-3">
-        {history.map((entry) => {
+      <div className="overflow-hidden rounded-[12px] bg-[#111827] shadow-[0_4px_6px_rgba(0,0,0,0.3)]">
+        {history.map((entry, entryIndex) => {
           const isExpanded = expandedId === entry.id;
 
           return (
             <div
               key={entry.id}
-              className="rounded-xl border border-white/10 bg-gray-900 transition-colors hover:border-white/15"
+              className={`transition-colors ${
+                entryIndex !== history.length - 1
+                  ? "border-b border-[rgba(255,255,255,0.1)]"
+                  : ""
+              } ${isExpanded ? "border-l-2 border-l-[#3b82f6]" : "border-l-2 border-l-transparent"}`}
             >
               {/* Summary row */}
               <button
@@ -83,26 +90,26 @@ export default function PostHistory() {
                 onClick={() =>
                   setExpandedId(isExpanded ? null : entry.id)
                 }
-                className="flex w-full items-center gap-4 px-5 py-4 text-left"
+                className="flex w-full items-center gap-4 px-5 py-4 text-left transition-colors hover:bg-[rgba(255,255,255,0.03)]"
                 aria-expanded={isExpanded}
               >
-                <div className="flex-1 min-w-0">
+                <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-2">
-                    <span className="truncate text-sm font-medium text-gray-200">
+                    <span className="truncate text-sm font-bold text-[#f9fafb]">
                       {entry.theme}
                     </span>
-                    <span className="shrink-0 rounded-full bg-white/5 px-2 py-0.5 text-[11px] text-gray-500">
+                    <span className="shrink-0 rounded-[6px] border border-[#1f2937] bg-transparent px-2 py-0.5 text-[11px] font-bold text-[#6b7280]">
                       {TONE_LABELS[entry.tone] || entry.tone}
                     </span>
                   </div>
-                  <span className="mt-0.5 block text-xs text-gray-500">
+                  <span className="mt-0.5 block text-xs text-[#6b7280]">
                     {formatDate(entry.createdAt)}
                   </span>
                 </div>
 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className={`h-4 w-4 shrink-0 text-gray-500 transition-transform ${
+                  className={`h-4 w-4 shrink-0 text-[#6b7280] transition-transform ${
                     isExpanded ? "rotate-180" : ""
                   }`}
                   fill="none"
@@ -120,17 +127,17 @@ export default function PostHistory() {
 
               {/* Expanded content */}
               {isExpanded && (
-                <div className="border-t border-white/5 px-5 py-4">
+                <div className="border-t border-[rgba(255,255,255,0.1)] px-5 py-4">
                   <div className="space-y-3">
                     {entry.posts.map((post, i) => (
                       <div
                         key={i}
-                        className="rounded-lg bg-gray-800/50 p-3"
+                        className="rounded-[8px] border border-[#1f2937] bg-[#030712] p-3"
                       >
-                        <span className="mb-1 block text-[11px] font-medium text-gray-500">
+                        <span className="mb-1 block text-[11px] font-bold text-[#6b7280]">
                           パターン {i + 1}
                         </span>
-                        <p className="whitespace-pre-wrap text-sm leading-relaxed text-gray-300">
+                        <p className="whitespace-pre-wrap text-sm leading-relaxed text-[#9ca3af]">
                           {post.text}
                         </p>
                         {post.hashtags.length > 0 && (
@@ -138,7 +145,7 @@ export default function PostHistory() {
                             {post.hashtags.map((tag) => (
                               <span
                                 key={tag}
-                                className="text-xs text-[#3B82F6]"
+                                className="text-xs font-bold text-[#3b82f6]"
                               >
                                 #{tag}
                               </span>
@@ -149,8 +156,11 @@ export default function PostHistory() {
                     ))}
                   </div>
 
-                  <p className="mt-3 text-xs text-gray-500">
-                    おすすめ投稿時間: {entry.suggestedTime}
+                  <p className="mt-3 text-xs text-[#6b7280]">
+                    おすすめ投稿時間:{" "}
+                    <span className="font-bold text-[#9ca3af]">
+                      {entry.suggestedTime}
+                    </span>
                   </p>
                 </div>
               )}

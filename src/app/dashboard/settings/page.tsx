@@ -8,19 +8,19 @@ export const metadata = {
 
 export default function SettingsPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-950 via-gray-950 to-gray-900 text-white">
+    <div className="min-h-screen bg-background text-foreground">
       {/* ───── Header ───── */}
-      <header className="border-b border-white/10 bg-gray-950/80 backdrop-blur-md">
+      <header className="border-b border-border bg-background/80 backdrop-blur-md">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <Link
             href="/dashboard"
-            className="text-lg font-bold tracking-tight"
+            className="text-lg font-bold tracking-tight text-foreground"
           >
             SNS AI Assist
           </Link>
           <Link
             href="/dashboard"
-            className="inline-flex items-center gap-1.5 text-sm text-zinc-400 transition-colors hover:text-white"
+            className="inline-flex items-center gap-1.5 text-sm text-sub transition-colors hover:text-foreground"
           >
             <svg
               className="h-4 w-4"
@@ -43,7 +43,7 @@ export default function SettingsPage() {
       {/* ───── Main ───── */}
       <main className="px-6 py-10 sm:py-14">
         <div className="mx-auto max-w-2xl">
-          <h1 className="mb-8 text-2xl font-bold tracking-tight sm:text-3xl">
+          <h1 className="mb-8 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
             設定
           </h1>
         </div>

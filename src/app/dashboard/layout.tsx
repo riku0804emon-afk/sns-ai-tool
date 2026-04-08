@@ -82,7 +82,7 @@ export default function DashboardLayout({
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex h-screen bg-gray-950 text-gray-100">
+    <div className="flex h-screen bg-[#030712] font-sans text-[#f9fafb]">
       {/* Mobile overlay */}
       {sidebarOpen && (
         <div
@@ -94,13 +94,13 @@ export default function DashboardLayout({
 
       {/* Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 z-40 flex w-64 flex-col border-r border-white/10 bg-gray-900 transition-transform duration-200 lg:static lg:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 z-40 flex w-64 flex-col border-r border-[rgba(255,255,255,0.1)] bg-black transition-transform duration-200 lg:static lg:translate-x-0 ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         {/* Logo */}
-        <div className="flex h-16 shrink-0 items-center gap-2 border-b border-white/10 px-6">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#3B82F6]">
+        <div className="flex h-16 shrink-0 items-center gap-2 border-b border-[rgba(255,255,255,0.1)] px-6">
+          <div className="flex h-8 w-8 items-center justify-center rounded-[8px] bg-[#3b82f6]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4 text-white"
@@ -116,7 +116,7 @@ export default function DashboardLayout({
               />
             </svg>
           </div>
-          <span className="text-base font-bold tracking-tight">
+          <span className="text-[14px] font-bold uppercase tracking-wide">
             SNS AI Assist
           </span>
         </div>
@@ -134,10 +134,10 @@ export default function DashboardLayout({
                 key={item.href}
                 href={item.href}
                 onClick={() => setSidebarOpen(false)}
-                className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${
+                className={`flex items-center gap-3 px-3 py-2.5 text-[14px] font-bold transition-colors ${
                   isActive
-                    ? "bg-[#3B82F6]/15 text-[#3B82F6]"
-                    : "text-gray-400 hover:bg-white/5 hover:text-gray-200"
+                    ? "border-l-2 border-[#3b82f6] bg-[rgba(59,130,246,0.1)] text-[#3b82f6]"
+                    : "border-l-2 border-transparent text-[#9ca3af] hover:bg-[rgba(255,255,255,0.05)] hover:text-[#f9fafb]"
                 }`}
                 aria-current={isActive ? "page" : undefined}
               >
@@ -149,7 +149,7 @@ export default function DashboardLayout({
         </nav>
 
         {/* Auth section */}
-        <div className="shrink-0 border-t border-white/10 p-4">
+        <div className="shrink-0 border-t border-[rgba(255,255,255,0.1)] p-4">
           <AuthButton />
         </div>
       </aside>
@@ -157,11 +157,11 @@ export default function DashboardLayout({
       {/* Main content area */}
       <div className="flex flex-1 flex-col overflow-hidden">
         {/* Mobile header */}
-        <header className="flex h-16 shrink-0 items-center gap-4 border-b border-white/10 bg-gray-900 px-4 lg:hidden">
+        <header className="flex h-16 shrink-0 items-center gap-4 border-b border-[rgba(255,255,255,0.1)] bg-black px-4 lg:hidden">
           <button
             type="button"
             onClick={() => setSidebarOpen(true)}
-            className="rounded-lg p-2 text-gray-400 hover:bg-white/5 hover:text-gray-200"
+            className="rounded-[8px] p-2 text-[#9ca3af] hover:bg-[rgba(255,255,255,0.05)] hover:text-[#f9fafb]"
             aria-label="メニューを開く"
           >
             <svg
@@ -179,13 +179,13 @@ export default function DashboardLayout({
               />
             </svg>
           </button>
-          <span className="text-sm font-bold tracking-tight">
+          <span className="text-[14px] font-bold uppercase tracking-wide">
             SNS AI Assist
           </span>
         </header>
 
         {/* Page content */}
-        <main className="flex-1 overflow-y-auto bg-gray-950 p-4 md:p-8">
+        <main className="flex-1 overflow-y-auto bg-[#030712] p-4 md:p-8">
           {children}
         </main>
       </div>

@@ -109,17 +109,22 @@ export default function GenerateForm() {
 
   return (
     <div className="space-y-6">
+      {/* Section label */}
+      <span className="block text-[12px] font-bold uppercase tracking-wider text-[#3b82f6]">
+        Generate Post
+      </span>
+
       {/* Form */}
       <form
         onSubmit={handleSubmit}
-        className="rounded-2xl border border-white/10 bg-gray-900 p-6"
+        className="rounded-[12px] border-t-2 border-[#3b82f6] bg-[#111827] p-6 shadow-[0_4px_6px_rgba(0,0,0,0.3)]"
       >
         <div className="space-y-5">
           {/* Theme */}
           <div>
             <label
               htmlFor="theme"
-              className="mb-1.5 block text-sm font-medium text-gray-200"
+              className="mb-1.5 block text-sm font-bold text-[#f9fafb]"
             >
               テーマ <span className="text-red-400">*</span>
             </label>
@@ -130,7 +135,7 @@ export default function GenerateForm() {
               value={theme}
               onChange={(e) => setTheme(e.target.value)}
               placeholder="例: 新商品のローンチ告知"
-              className="w-full rounded-lg border border-white/10 bg-gray-800 px-4 py-2.5 text-sm text-white placeholder-gray-500 outline-none transition-colors focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6]"
+              className="w-full rounded-[6px] border border-[#1f2937] bg-[#111827] px-4 py-2.5 text-sm text-[#f9fafb] placeholder-[#6b7280] outline-none transition-colors focus:border-[#3b82f6]"
               disabled={isLoading}
             />
           </div>
@@ -139,10 +144,10 @@ export default function GenerateForm() {
           <div>
             <label
               htmlFor="keywords"
-              className="mb-1.5 block text-sm font-medium text-gray-200"
+              className="mb-1.5 block text-sm font-bold text-[#f9fafb]"
             >
               キーワード{" "}
-              <span className="text-xs text-gray-500">(任意)</span>
+              <span className="text-xs text-[#6b7280]">(任意)</span>
             </label>
             <input
               id="keywords"
@@ -150,24 +155,24 @@ export default function GenerateForm() {
               value={keywords}
               onChange={(e) => setKeywords(e.target.value)}
               placeholder="例: AI, 効率化, ビジネス"
-              className="w-full rounded-lg border border-white/10 bg-gray-800 px-4 py-2.5 text-sm text-white placeholder-gray-500 outline-none transition-colors focus:border-[#3B82F6] focus:ring-1 focus:ring-[#3B82F6]"
+              className="w-full rounded-[6px] border border-[#1f2937] bg-[#111827] px-4 py-2.5 text-sm text-[#f9fafb] placeholder-[#6b7280] outline-none transition-colors focus:border-[#3b82f6]"
               disabled={isLoading}
             />
           </div>
 
           {/* Tone */}
           <fieldset>
-            <legend className="mb-2 text-sm font-medium text-gray-200">
+            <legend className="mb-2 text-sm font-bold text-[#f9fafb]">
               トーン
             </legend>
             <div className="flex flex-wrap gap-3">
               {TONE_OPTIONS.map((option) => (
                 <label
                   key={option.value}
-                  className={`flex cursor-pointer items-center gap-2.5 rounded-lg border px-4 py-2.5 text-sm transition-colors ${
+                  className={`flex cursor-pointer items-center gap-2.5 rounded-[8px] border-2 bg-transparent px-4 py-2.5 text-sm transition-colors ${
                     tone === option.value
-                      ? "border-[#3B82F6] bg-[#3B82F6]/10 text-[#3B82F6]"
-                      : "border-white/10 bg-gray-800 text-gray-400 hover:border-white/20 hover:text-gray-300"
+                      ? "border-[#3b82f6] text-[#3b82f6]"
+                      : "border-[#1f2937] text-[#9ca3af] hover:border-[#3b82f6]/50 hover:text-[#f9fafb]"
                   } ${isLoading ? "pointer-events-none opacity-50" : ""}`}
                 >
                   <input
@@ -179,7 +184,7 @@ export default function GenerateForm() {
                     className="sr-only"
                     disabled={isLoading}
                   />
-                  <span className="font-medium">{option.label}</span>
+                  <span className="font-bold">{option.label}</span>
                   <span className="hidden text-xs opacity-70 sm:inline">
                     {option.description}
                   </span>
@@ -189,11 +194,11 @@ export default function GenerateForm() {
           </fieldset>
         </div>
 
-        {/* Submit */}
+        {/* Submit - outline style */}
         <button
           type="submit"
           disabled={isLoading || !theme.trim()}
-          className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#3B82F6] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/25 transition-all hover:bg-blue-600 hover:shadow-blue-500/40 disabled:cursor-not-allowed disabled:opacity-50 disabled:shadow-none sm:w-auto"
+          className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-[8px] border-2 border-[#3b82f6] bg-transparent px-6 py-3 text-sm font-bold text-[#3b82f6] transition-all hover:bg-[#2563eb] hover:text-white disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
         >
           {isLoading ? (
             <>
@@ -228,7 +233,7 @@ export default function GenerateForm() {
       {/* Error */}
       {error && (
         <div
-          className="rounded-lg border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-400"
+          className="rounded-[8px] border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-400"
           role="alert"
         >
           {error}
@@ -238,11 +243,16 @@ export default function GenerateForm() {
       {/* Results */}
       {result && (
         <div className="space-y-4">
+          {/* Section label */}
+          <span className="block text-[12px] font-bold uppercase tracking-wider text-[#3b82f6]">
+            Results
+          </span>
+
           {/* Suggested time */}
-          <div className="flex items-center gap-2 rounded-lg border border-[#3B82F6]/20 bg-[#3B82F6]/5 px-4 py-3 text-sm">
+          <div className="flex items-center gap-2 rounded-[8px] border border-[#3b82f6]/20 bg-[#3b82f6]/5 px-4 py-3 text-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4 shrink-0 text-[#3B82F6]"
+              className="h-4 w-4 shrink-0 text-[#3b82f6]"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -254,9 +264,9 @@ export default function GenerateForm() {
                 d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </svg>
-            <span className="text-gray-300">
+            <span className="text-[#9ca3af]">
               おすすめ投稿時間:{" "}
-              <span className="font-medium text-white">
+              <span className="font-bold text-[#f9fafb]">
                 {result.suggestedTime}
               </span>
             </span>
@@ -267,16 +277,16 @@ export default function GenerateForm() {
             {result.posts.map((post, index) => (
               <article
                 key={index}
-                className="group flex flex-col rounded-2xl border border-white/10 bg-gray-900 p-5 transition-colors hover:border-white/20"
+                className="group flex flex-col rounded-[12px] border-t-2 border-[#3b82f6] bg-[#111827] p-5 shadow-[0_4px_6px_rgba(0,0,0,0.3)] transition-colors"
               >
                 <div className="mb-2 flex items-center justify-between">
-                  <span className="text-xs font-medium text-gray-500">
+                  <span className="text-xs font-bold text-[#6b7280]">
                     パターン {index + 1}
                   </span>
                   <button
                     type="button"
                     onClick={() => handleCopy(post.text, post.hashtags, index)}
-                    className="flex items-center gap-1 rounded-md px-2 py-1 text-xs text-gray-400 transition-colors hover:bg-white/5 hover:text-white"
+                    className="flex items-center gap-1 rounded-[6px] border border-[#3b82f6] bg-transparent px-2 py-1 text-xs font-bold text-[#3b82f6] transition-colors hover:bg-[#2563eb] hover:text-white"
                     aria-label={`パターン ${index + 1} をコピー`}
                   >
                     {copiedIndex === index ? (
@@ -319,7 +329,7 @@ export default function GenerateForm() {
                   </button>
                 </div>
 
-                <p className="flex-1 whitespace-pre-wrap text-sm leading-relaxed text-gray-200">
+                <p className="flex-1 whitespace-pre-wrap text-sm leading-relaxed text-[#f9fafb]">
                   {post.text}
                 </p>
 
@@ -328,7 +338,7 @@ export default function GenerateForm() {
                     {post.hashtags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full bg-[#3B82F6]/10 px-2.5 py-0.5 text-xs font-medium text-[#3B82F6]"
+                        className="rounded-full bg-[#3b82f6]/10 px-2.5 py-0.5 text-xs font-bold text-[#3b82f6]"
                       >
                         #{tag}
                       </span>

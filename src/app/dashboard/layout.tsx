@@ -82,7 +82,7 @@ export default function DashboardLayout({
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex h-screen bg-[#030712] font-sans text-[#f9fafb]">
+    <div className="flex h-screen bg-[#000000] font-sans text-[#f9fafb]">
       {/* Mobile overlay */}
       {sidebarOpen && (
         <div
@@ -100,7 +100,7 @@ export default function DashboardLayout({
       >
         {/* Logo */}
         <div className="flex h-16 shrink-0 items-center gap-2 border-b border-[rgba(255,255,255,0.1)] px-6">
-          <div className="flex h-8 w-8 items-center justify-center rounded-[8px] bg-[#3b82f6]">
+          <div className="flex h-8 w-8 items-center justify-center rounded-[2px] bg-[#76b900]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4 text-white"
@@ -136,7 +136,7 @@ export default function DashboardLayout({
                 onClick={() => setSidebarOpen(false)}
                 className={`flex items-center gap-3 px-3 py-2.5 text-[14px] font-bold transition-colors ${
                   isActive
-                    ? "border-l-2 border-[#3b82f6] bg-[rgba(59,130,246,0.1)] text-[#3b82f6]"
+                    ? "border-l-2 border-[#76b900] bg-[rgba(118,185,0,0.1)] text-[#76b900]"
                     : "border-l-2 border-transparent text-[#9ca3af] hover:bg-[rgba(255,255,255,0.05)] hover:text-[#f9fafb]"
                 }`}
                 aria-current={isActive ? "page" : undefined}
@@ -161,7 +161,7 @@ export default function DashboardLayout({
           <button
             type="button"
             onClick={() => setSidebarOpen(true)}
-            className="rounded-[8px] p-2 text-[#9ca3af] hover:bg-[rgba(255,255,255,0.05)] hover:text-[#f9fafb]"
+            className="rounded-[2px] p-2 text-[#9ca3af] hover:bg-[rgba(255,255,255,0.05)] hover:text-[#f9fafb]"
             aria-label="メニューを開く"
           >
             <svg
@@ -185,7 +185,7 @@ export default function DashboardLayout({
         </header>
 
         {/* Page content */}
-        <main className="flex-1 overflow-y-auto bg-[#030712] p-4 md:p-8">
+        <main className="flex-1 overflow-y-auto bg-[#000000] p-4 md:p-8">
           {children}
         </main>
       </div>

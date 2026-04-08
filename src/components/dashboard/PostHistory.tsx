@@ -61,7 +61,7 @@ export default function PostHistory() {
 
   return (
     <section aria-labelledby="history-heading">
-      <span className="mb-2 block text-[12px] font-bold uppercase tracking-wider text-[#3b82f6]">
+      <span className="mb-2 block text-[12px] font-bold uppercase tracking-wider text-[#76b900]">
         History
       </span>
       <h2
@@ -71,7 +71,7 @@ export default function PostHistory() {
         生成履歴
       </h2>
 
-      <div className="overflow-hidden rounded-[12px] bg-[#111827] shadow-[0_4px_6px_rgba(0,0,0,0.3)]">
+      <div className="overflow-hidden rounded-[2px] bg-[#1a1a1a] shadow-[0_4px_6px_rgba(0,0,0,0.3)]">
         {history.map((entry, entryIndex) => {
           const isExpanded = expandedId === entry.id;
 
@@ -82,7 +82,7 @@ export default function PostHistory() {
                 entryIndex !== history.length - 1
                   ? "border-b border-[rgba(255,255,255,0.1)]"
                   : ""
-              } ${isExpanded ? "border-l-2 border-l-[#3b82f6]" : "border-l-2 border-l-transparent"}`}
+              } ${isExpanded ? "border-l-2 border-l-[#76b900]" : "border-l-2 border-l-transparent"}`}
             >
               {/* Summary row */}
               <button
@@ -98,7 +98,7 @@ export default function PostHistory() {
                     <span className="truncate text-sm font-bold text-[#f9fafb]">
                       {entry.theme}
                     </span>
-                    <span className="shrink-0 rounded-[6px] border border-[#1f2937] bg-transparent px-2 py-0.5 text-[11px] font-bold text-[#6b7280]">
+                    <span className="shrink-0 rounded-[2px] border border-[#333333] bg-transparent px-2 py-0.5 text-[11px] font-bold text-[#6b7280]">
                       {TONE_LABELS[entry.tone] || entry.tone}
                     </span>
                   </div>
@@ -132,7 +132,7 @@ export default function PostHistory() {
                     {entry.posts.map((post, i) => (
                       <div
                         key={i}
-                        className="rounded-[8px] border border-[#1f2937] bg-[#030712] p-3"
+                        className="rounded-[2px] border border-[#333333] bg-[#000000] p-3"
                       >
                         <span className="mb-1 block text-[11px] font-bold text-[#6b7280]">
                           パターン {i + 1}
@@ -145,7 +145,7 @@ export default function PostHistory() {
                             {post.hashtags.map((tag) => (
                               <span
                                 key={tag}
-                                className="text-xs font-bold text-[#3b82f6]"
+                                className="text-xs font-bold text-[#76b900]"
                               >
                                 #{tag}
                               </span>

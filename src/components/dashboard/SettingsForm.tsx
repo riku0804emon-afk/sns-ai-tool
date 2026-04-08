@@ -39,7 +39,7 @@ function Toast({
     <div
       role="status"
       aria-live="polite"
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-[12px] border border-border bg-card px-5 py-3 text-sm font-medium text-[#22c55e] shadow-lg border-l-4 border-l-[#22c55e]"
+      className="fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-[2px] border border-border bg-card px-5 py-3 text-sm font-medium text-[#22c55e] shadow-lg border-l-4 border-l-[#22c55e]"
     >
       <svg
         className="h-5 w-5 shrink-0"
@@ -147,7 +147,7 @@ export default function SettingsForm() {
     <>
       <div className="mx-auto max-w-2xl space-y-8">
         {/* ──── Profile Section ──── */}
-        <section className="rounded-[12px] border border-white/10 bg-card p-6 sm:p-8 border-t-2 border-t-accent">
+        <section className="rounded-[2px] border border-white/10 bg-card p-6 sm:p-8 border-t-2 border-t-accent">
           <h2 className="mb-1 text-xs font-bold uppercase tracking-wider text-accent">
             プロフィール
           </h2>
@@ -195,7 +195,7 @@ export default function SettingsForm() {
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                   </svg>
                   @{session.user.twitterUsername}
-                  <span className="ml-1 inline-block rounded-[6px] bg-[#22c55e]/15 px-2 py-0.5 text-xs font-medium text-[#22c55e]">
+                  <span className="ml-1 inline-block rounded-[2px] bg-[#22c55e]/15 px-2 py-0.5 text-xs font-medium text-[#22c55e]">
                     連携済み
                   </span>
                 </p>
@@ -209,7 +209,7 @@ export default function SettingsForm() {
         </section>
 
         {/* ──── Settings Section ──── */}
-        <section className="rounded-[12px] border border-white/10 bg-card p-6 sm:p-8">
+        <section className="rounded-[2px] border border-white/10 bg-card p-6 sm:p-8">
           <h2 className="mb-6 text-xs font-bold uppercase tracking-wider text-accent">
             設定
           </h2>
@@ -232,7 +232,7 @@ export default function SettingsForm() {
                     defaultTone: e.target.value as Tone,
                   }))
                 }
-                className="w-full rounded-[6px] border border-border bg-card px-4 py-2.5 text-sm text-foreground transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                className="w-full rounded-[2px] border border-border bg-card px-4 py-2.5 text-sm text-foreground transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
               >
                 {(Object.entries(TONE_LABELS) as [Tone, string][]).map(
                   ([value, label]) => (
@@ -264,7 +264,7 @@ export default function SettingsForm() {
                     }))
                   }
                   placeholder="sk-ant-..."
-                  className="w-full rounded-[6px] border border-border bg-card px-4 py-2.5 pr-12 text-sm text-foreground placeholder-muted transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                  className="w-full rounded-[2px] border border-border bg-card px-4 py-2.5 pr-12 text-sm text-foreground placeholder-muted transition-colors focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                 />
                 <button
                   type="button"
@@ -272,7 +272,7 @@ export default function SettingsForm() {
                   aria-label={
                     showApiKey ? "APIキーを隠す" : "APIキーを表示する"
                   }
-                  className="absolute right-2 top-1/2 -translate-y-1/2 rounded-[6px] p-1.5 text-muted transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 rounded-[2px] p-1.5 text-muted transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                 >
                   {showApiKey ? (
                     <svg
@@ -345,7 +345,7 @@ export default function SettingsForm() {
             type="button"
             onClick={handleSave}
             disabled={saving}
-            className="inline-flex h-11 items-center justify-center rounded-[8px] border-2 border-accent bg-transparent px-8 text-sm font-semibold text-accent transition-all hover:bg-accent hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50"
+            className="inline-flex h-11 items-center justify-center rounded-[2px] border-2 border-accent bg-transparent px-8 text-sm font-semibold text-accent transition-all hover:bg-accent hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50"
           >
             {saving ? (
               <>

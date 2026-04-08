@@ -7,7 +7,7 @@ export default function AuthButton() {
 
   if (status === "loading") {
     return (
-      <div className="h-10 w-28 animate-pulse rounded-lg bg-gray-200 dark:bg-gray-700" />
+      <div className="h-10 w-28 animate-pulse rounded-[2px] bg-gray-200 dark:bg-gray-700" />
     );
   }
 
@@ -30,7 +30,7 @@ export default function AuthButton() {
         </span>
         <button
           onClick={() => signOut()}
-          className="rounded-lg border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
+          className="rounded-[2px] border border-gray-300 bg-white px-3 py-1.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
         >
           Logout
         </button>
@@ -41,7 +41,7 @@ export default function AuthButton() {
   return (
     <button
       onClick={() => signIn("twitter")}
-      className="inline-flex items-center gap-2 rounded-lg bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+      className="inline-flex items-center gap-2 rounded-[2px] bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
     >
       <svg
         viewBox="0 0 24 24"

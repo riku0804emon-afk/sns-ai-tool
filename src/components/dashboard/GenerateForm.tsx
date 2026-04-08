@@ -110,14 +110,14 @@ export default function GenerateForm() {
   return (
     <div className="space-y-6">
       {/* Section label */}
-      <span className="block text-[12px] font-bold uppercase tracking-wider text-[#3b82f6]">
+      <span className="block text-[12px] font-bold uppercase tracking-wider text-[#76b900]">
         Generate Post
       </span>
 
       {/* Form */}
       <form
         onSubmit={handleSubmit}
-        className="rounded-[12px] border-t-2 border-[#3b82f6] bg-[#111827] p-6 shadow-[0_4px_6px_rgba(0,0,0,0.3)]"
+        className="rounded-[2px] border-t-2 border-[#76b900] bg-[#1a1a1a] p-6 shadow-[0_4px_6px_rgba(0,0,0,0.3)]"
       >
         <div className="space-y-5">
           {/* Theme */}
@@ -135,7 +135,7 @@ export default function GenerateForm() {
               value={theme}
               onChange={(e) => setTheme(e.target.value)}
               placeholder="例: 新商品のローンチ告知"
-              className="w-full rounded-[6px] border border-[#1f2937] bg-[#111827] px-4 py-2.5 text-sm text-[#f9fafb] placeholder-[#6b7280] outline-none transition-colors focus:border-[#3b82f6]"
+              className="w-full rounded-[2px] border border-[#333333] bg-[#1a1a1a] px-4 py-2.5 text-sm text-[#f9fafb] placeholder-[#6b7280] outline-none transition-colors focus:border-[#76b900]"
               disabled={isLoading}
             />
           </div>
@@ -155,7 +155,7 @@ export default function GenerateForm() {
               value={keywords}
               onChange={(e) => setKeywords(e.target.value)}
               placeholder="例: AI, 効率化, ビジネス"
-              className="w-full rounded-[6px] border border-[#1f2937] bg-[#111827] px-4 py-2.5 text-sm text-[#f9fafb] placeholder-[#6b7280] outline-none transition-colors focus:border-[#3b82f6]"
+              className="w-full rounded-[2px] border border-[#333333] bg-[#1a1a1a] px-4 py-2.5 text-sm text-[#f9fafb] placeholder-[#6b7280] outline-none transition-colors focus:border-[#76b900]"
               disabled={isLoading}
             />
           </div>
@@ -169,10 +169,10 @@ export default function GenerateForm() {
               {TONE_OPTIONS.map((option) => (
                 <label
                   key={option.value}
-                  className={`flex cursor-pointer items-center gap-2.5 rounded-[8px] border-2 bg-transparent px-4 py-2.5 text-sm transition-colors ${
+                  className={`flex cursor-pointer items-center gap-2.5 rounded-[2px] border-2 bg-transparent px-4 py-2.5 text-sm transition-colors ${
                     tone === option.value
-                      ? "border-[#3b82f6] text-[#3b82f6]"
-                      : "border-[#1f2937] text-[#9ca3af] hover:border-[#3b82f6]/50 hover:text-[#f9fafb]"
+                      ? "border-[#76b900] text-[#76b900]"
+                      : "border-[#333333] text-[#9ca3af] hover:border-[#76b900]/50 hover:text-[#f9fafb]"
                   } ${isLoading ? "pointer-events-none opacity-50" : ""}`}
                 >
                   <input
@@ -198,7 +198,7 @@ export default function GenerateForm() {
         <button
           type="submit"
           disabled={isLoading || !theme.trim()}
-          className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-[8px] border-2 border-[#3b82f6] bg-transparent px-6 py-3 text-sm font-bold text-[#3b82f6] transition-all hover:bg-[#2563eb] hover:text-white disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
+          className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-[2px] border-2 border-[#76b900] bg-transparent px-6 py-3 text-sm font-bold text-[#76b900] transition-all hover:bg-[#76b900] hover:text-white disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
         >
           {isLoading ? (
             <>
@@ -233,7 +233,7 @@ export default function GenerateForm() {
       {/* Error */}
       {error && (
         <div
-          className="rounded-[8px] border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-400"
+          className="rounded-[2px] border border-red-500/20 bg-red-500/10 px-4 py-3 text-sm text-red-400"
           role="alert"
         >
           {error}
@@ -244,15 +244,15 @@ export default function GenerateForm() {
       {result && (
         <div className="space-y-4">
           {/* Section label */}
-          <span className="block text-[12px] font-bold uppercase tracking-wider text-[#3b82f6]">
+          <span className="block text-[12px] font-bold uppercase tracking-wider text-[#76b900]">
             Results
           </span>
 
           {/* Suggested time */}
-          <div className="flex items-center gap-2 rounded-[8px] border border-[#3b82f6]/20 bg-[#3b82f6]/5 px-4 py-3 text-sm">
+          <div className="flex items-center gap-2 rounded-[2px] border border-[#76b900]/20 bg-[#76b900]/5 px-4 py-3 text-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4 shrink-0 text-[#3b82f6]"
+              className="h-4 w-4 shrink-0 text-[#76b900]"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -277,7 +277,7 @@ export default function GenerateForm() {
             {result.posts.map((post, index) => (
               <article
                 key={index}
-                className="group flex flex-col rounded-[12px] border-t-2 border-[#3b82f6] bg-[#111827] p-5 shadow-[0_4px_6px_rgba(0,0,0,0.3)] transition-colors"
+                className="group flex flex-col rounded-[2px] border-t-2 border-[#76b900] bg-[#1a1a1a] p-5 shadow-[0_4px_6px_rgba(0,0,0,0.3)] transition-colors"
               >
                 <div className="mb-2 flex items-center justify-between">
                   <span className="text-xs font-bold text-[#6b7280]">
@@ -286,7 +286,7 @@ export default function GenerateForm() {
                   <button
                     type="button"
                     onClick={() => handleCopy(post.text, post.hashtags, index)}
-                    className="flex items-center gap-1 rounded-[6px] border border-[#3b82f6] bg-transparent px-2 py-1 text-xs font-bold text-[#3b82f6] transition-colors hover:bg-[#2563eb] hover:text-white"
+                    className="flex items-center gap-1 rounded-[2px] border border-[#76b900] bg-transparent px-2 py-1 text-xs font-bold text-[#76b900] transition-colors hover:bg-[#76b900] hover:text-white"
                     aria-label={`パターン ${index + 1} をコピー`}
                   >
                     {copiedIndex === index ? (
@@ -338,7 +338,7 @@ export default function GenerateForm() {
                     {post.hashtags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full bg-[#3b82f6]/10 px-2.5 py-0.5 text-xs font-bold text-[#3b82f6]"
+                        className="rounded-full bg-[#76b900]/10 px-2.5 py-0.5 text-xs font-bold text-[#76b900]"
                       >
                         #{tag}
                       </span>

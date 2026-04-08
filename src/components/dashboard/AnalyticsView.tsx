@@ -79,7 +79,7 @@ function StatCard({
 }) {
   return (
     <div
-      className="rounded-[12px] border border-[#1f2937] bg-[#111827] p-5"
+      className="rounded-[2px] border border-[#333333] bg-[#1a1a1a] p-5"
       style={{ borderTop: `2px solid ${accentColor}` }}
     >
       <p className="text-xs font-bold uppercase tracking-wider text-[#9ca3af]">
@@ -94,7 +94,7 @@ function StatCard({
 function PostRow({ post, index }: { post: PostData; index: number }) {
   const total = post.likes + post.retweets + post.replies;
   return (
-    <div className="flex flex-col gap-2 rounded-[8px] border border-[#1f2937] bg-[#111827] p-4 transition-all duration-150 hover:border-l-2 hover:border-l-[#3b82f6] sm:flex-row sm:items-start sm:gap-4">
+    <div className="flex flex-col gap-2 rounded-[2px] border border-[#333333] bg-[#1a1a1a] p-4 transition-all duration-150 hover:border-l-2 hover:border-l-[#76b900] sm:flex-row sm:items-start sm:gap-4">
       <span className="shrink-0 text-xs font-semibold text-[#6b7280]">
         #{index + 1}
       </span>
@@ -110,7 +110,7 @@ function PostRow({ post, index }: { post: PostData; index: number }) {
           <span>
             <ReplyIcon /> {post.replies}
           </span>
-          <span className="text-[#3b82f6]">
+          <span className="text-[#76b900]">
             合計エンゲージメント: {total}
           </span>
         </div>
@@ -154,7 +154,7 @@ function RetweetIcon() {
 function ReplyIcon() {
   return (
     <svg
-      className="mr-1 inline-block h-3.5 w-3.5 text-[#3b82f6]"
+      className="mr-1 inline-block h-3.5 w-3.5 text-[#76b900]"
       fill="none"
       stroke="currentColor"
       strokeWidth={2}
@@ -217,7 +217,7 @@ export function AnalyticsView() {
     <div className="space-y-8">
       {/* ----- Engagement rate cards ----- */}
       <section aria-label="エンゲージメント概要">
-        <p className="mb-4 text-xs font-bold uppercase tracking-wider text-[#3b82f6]">
+        <p className="mb-4 text-xs font-bold uppercase tracking-wider text-[#76b900]">
           Engagement Overview
         </p>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
@@ -237,14 +237,14 @@ export function AnalyticsView() {
             label="リプライ率"
             value={`${calcRate(totalReplies, totalEngagement)}%`}
             sub={`${totalReplies.toLocaleString()} リプライ`}
-            accentColor="#3b82f6"
+            accentColor="#76b900"
           />
         </div>
       </section>
 
       {/* ----- Posts list ----- */}
       <section aria-label="投稿一覧">
-        <p className="mb-1 text-xs font-bold uppercase tracking-wider text-[#3b82f6]">
+        <p className="mb-1 text-xs font-bold uppercase tracking-wider text-[#76b900]">
           Posts
         </p>
         <h2 className="mb-4 text-lg font-semibold text-[#f9fafb]">
@@ -266,7 +266,7 @@ export function AnalyticsView() {
           type="button"
           onClick={handleAnalyze}
           disabled={loading}
-          className="inline-flex items-center gap-2 rounded-[8px] border-2 border-[#3b82f6] bg-transparent px-5 py-2.5 text-sm font-medium text-[#3b82f6] transition-all duration-150 hover:bg-[#2563eb] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#3b82f6] focus:ring-offset-2 focus:ring-offset-[#030712] disabled:cursor-not-allowed disabled:opacity-50"
+          className="inline-flex items-center gap-2 rounded-[2px] border-2 border-[#76b900] bg-transparent px-5 py-2.5 text-sm font-medium text-[#76b900] transition-all duration-150 hover:bg-[#76b900] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#76b900] focus:ring-offset-2 focus:ring-offset-[#000000] disabled:cursor-not-allowed disabled:opacity-50"
         >
           {loading ? (
             <>
@@ -307,7 +307,7 @@ export function AnalyticsView() {
       {error && (
         <div
           role="alert"
-          className="rounded-[8px] border border-red-800/50 bg-red-950/40 px-4 py-3 text-sm text-red-300"
+          className="rounded-[2px] border border-red-800/50 bg-red-950/40 px-4 py-3 text-sm text-red-300"
         >
           {error}
         </div>
@@ -317,12 +317,12 @@ export function AnalyticsView() {
       {analysis && (
         <section
           aria-label="AI分析結果"
-          className="space-y-5 rounded-[12px] border border-[#1f2937] bg-[#111827] p-6"
-          style={{ borderTop: "2px solid #3b82f6" }}
+          className="space-y-5 rounded-[2px] border border-[#333333] bg-[#1a1a1a] p-6"
+          style={{ borderTop: "2px solid #76b900" }}
         >
           <h2 className="flex items-center gap-2 text-lg font-semibold text-[#f9fafb]">
             <svg
-              className="h-5 w-5 text-[#3b82f6]"
+              className="h-5 w-5 text-[#76b900]"
               fill="none"
               stroke="currentColor"
               strokeWidth={2}
@@ -340,7 +340,7 @@ export function AnalyticsView() {
 
           <div className="space-y-4">
             <div>
-              <h3 className="text-xs font-bold uppercase tracking-wider text-[#3b82f6]">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-[#76b900]">
                 トップパフォーマンス
               </h3>
               <p className="mt-1 text-sm leading-relaxed text-[#9ca3af]">
@@ -349,7 +349,7 @@ export function AnalyticsView() {
             </div>
 
             <div>
-              <h3 className="text-xs font-bold uppercase tracking-wider text-[#3b82f6]">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-[#76b900]">
                 エンゲージメント傾向
               </h3>
               <p className="mt-1 text-sm leading-relaxed text-[#9ca3af]">
@@ -358,7 +358,7 @@ export function AnalyticsView() {
             </div>
 
             <div>
-              <h3 className="text-xs font-bold uppercase tracking-wider text-[#3b82f6]">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-[#76b900]">
                 エンゲージメント率評価
               </h3>
               <p className="mt-1 text-sm leading-relaxed text-[#9ca3af]">
@@ -367,16 +367,16 @@ export function AnalyticsView() {
             </div>
 
             <div>
-              <h3 className="text-xs font-bold uppercase tracking-wider text-[#3b82f6]">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-[#76b900]">
                 改善提案
               </h3>
               <ul className="mt-2 space-y-2">
                 {analysis.suggestions.map((s, i) => (
                   <li
                     key={i}
-                    className="flex items-start gap-3 border-l-2 border-[#3b82f6] pl-3 text-sm text-[#9ca3af]"
+                    className="flex items-start gap-3 border-l-2 border-[#76b900] pl-3 text-sm text-[#9ca3af]"
                   >
-                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#3b82f6]/20 text-xs font-semibold text-[#3b82f6]">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#76b900]/20 text-xs font-semibold text-[#76b900]">
                       {i + 1}
                     </span>
                     {s}
